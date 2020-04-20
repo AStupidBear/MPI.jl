@@ -78,6 +78,8 @@ function __init__()
         # though that would probably trigger a race condition
         error("MPI library has changed, please restart Julia")
     end
+
+    ENV["UCX_MEM_EVENTS"] = "no"
     
     # Julia multithreading uses SIGSEGV to sync thread
     # https://docs.julialang.org/en/v1/devdocs/debuggingtips/#Dealing-with-signals-1
